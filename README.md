@@ -31,9 +31,11 @@ paper = SemanticScholarAPI.paper(s2_paper_id)
 
 # grab any citing papers deemed to be influential.
 # sort them by the year of publication (oldest first).
-influential_papers = sorted(filter(lambda x: x.isInfluential, paper.citations), key = lambda x: x.year)
-print("TITLE\tNUM. CITED BY")
+influential_papers = sorted(filter(lambda x: x.isInfluential, paper.citations), key=lambda x: x.year)
+
+# how many times were these influential papers cited?
+print("\tPUB YEAR\tTITLE\tNUM. CITED BY")
 for p in influential_papers:
   complete_summary = p.full()
-  print("{}\t{}".format(complete_summary.title, len(complete_summary.citations)))
+  print("{}\t{}\t{}".format(complete_summary.year, complete_summary.title, len(complete_summary.citations)))
 ```
