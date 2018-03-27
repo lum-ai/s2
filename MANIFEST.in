@@ -1,0 +1,10 @@
+include s2/*.py
+
+include s2/tests/*.json
+
+include requirements.txt
+
+recursive-include docs *.rst *.md conf.py *.css Makefile
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
